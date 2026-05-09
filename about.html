@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>About – GrandRise Enterprises Ltd</title>
+  <meta name="description" content="GrandRise Enterprises Ltd is a Nigeria-based import and distribution company committed to delivering high-quality products across key sectors of the economy." />
+  <style>
+    :root {
+      --navy: #0A1F3F;
+      --gold: #D4A843;
+      --slate: #4B5563;
+      --light-bg: #F7F7F5;
+      --text: #1e293b;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      color: var(--text);
+      background: white;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
+    h1, h2, h3 { font-weight: 700; color: var(--navy); }
+    h2 { font-size: 2rem; margin-bottom: 1rem; }
+    @media (min-width: 768px) { h2 { font-size: 2.5rem; } }
+
+    /* ----- Header ----- */
+    .header {
+      position: fixed; top: 0; left: 0; width: 100%; z-index: 50;
+      background: rgba(10, 31, 63, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(212, 167, 67, 0.25);
+    }
+    .header .container {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 70px;
+    }
+    .logo img {
+      height: 44px;
+      width: 44px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      border: 2px solid var(--gold);
+    }
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links a {
+      color: white; text-decoration: none; font-weight: 500;
+      font-size: 0.95rem; transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+    .btn {
+      display: inline-block; padding: 0.75rem 1.75rem; border-radius: 8px;
+      font-weight: 600; text-decoration: none; transition: all 0.2s;
+      cursor: pointer; border: 1px solid transparent;
+    }
+    .btn-gold { background: var(--gold); color: var(--navy); border-color: var(--gold); }
+    .btn-gold:hover { background: #c99b2e; }
+    .btn-outline-gold { border-color: var(--gold); color: var(--gold); background: transparent; }
+    .btn-outline-gold:hover { background: var(--gold); color: var(--navy); }
+    .mobile-menu-btn { display: none; background: none; border: none; color: white; font-size: 1.5rem; }
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none; position: absolute; top: 70px; left: 0; width: 100%;
+        background: rgba(10, 31, 63, 0.98); flex-direction: column;
+        padding: 1.5rem; gap: 1rem;
+      }
+      .nav-links.open { display: flex; }
+      .mobile-menu-btn { display: block; }
+    }
+
+    /* ----- Page Hero ----- */
+    .page-hero {
+      background: var(--navy);
+      padding: 7rem 0 3rem;
+      text-align: center;
+      color: white;
+    }
+    .page-hero h1 { color: var(--gold); font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 0.75rem; }
+    .page-hero p { color: rgba(255,255,255,0.7); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+
+    /* ----- Section Spacing ----- */
+    .section { padding: 5rem 0; }
+    .section-light { background: var(--light-bg); }
+
+    /* ----- Who We Are ----- */
+    .about-content { max-width: 900px; margin: 0 auto; }
+    .about-content p { font-size: 1.05rem; margin-bottom: 1.25rem; color: var(--text); }
+    .about-content p:last-child { margin-bottom: 0; }
+
+    /* ----- What We Do ----- */
+    .specializations {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .spec-card {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      transition: transform 0.2s;
+    }
+    .spec-card:hover { transform: translateY(-4px); }
+    .spec-marker {
+      width: 12px;
+      height: 12px;
+      min-width: 12px;
+      background: var(--gold);
+      border-radius: 50%;
+      margin-top: 6px;
+    }
+    .spec-card h3 { font-size: 1.1rem; margin-bottom: 0.25rem; }
+    .spec-card p { color: var(--slate); font-size: 0.95rem; }
+
+    /* ----- Mission & Vision ----- */
+    .mv-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    @media (max-width: 768px) { .mv-grid { grid-template-columns: 1fr; } }
+    .mv-card {
+      background: white;
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+      border-left: 4px solid var(--gold);
+    }
+    .mv-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .mv-card h3 span { font-size: 1.5rem; }
+    .mv-card p { color: var(--slate); font-size: 1rem; line-height: 1.7; }
+
+    /* ----- Commitment Band ----- */
+    .commitment {
+      background: var(--navy);
+      color: white;
+      text-align: center;
+      padding: 4rem 2rem;
+      border-radius: 16px;
+    }
+    .commitment h2 { color: var(--gold); }
+    .commitment p {
+      color: rgba(255, 255, 255, 0.8);
+      max-width: 650px;
+      margin: 0 auto 2rem;
+      font-size: 1.05rem;
+    }
+
+    /* ----- Footer ----- */
+    footer {
+      background: var(--navy); color: white; padding: 2rem 0; font-size: 0.9rem;
+    }
+    footer .container {
+      display: flex; flex-wrap: wrap; justify-content: space-between;
+      align-items: center;
+    }
+    footer a { color: var(--gold); text-decoration: none; }
+    .footer-logo {
+      height: 36px;
+      width: 36px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--gold);
+      filter: brightness(0) invert(1);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="header">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1778336562/IMG-20260501-WA0017_qabmpq.jpg" alt="GrandRise Logo" />
+      </a>
+      <button class="mobile-menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active">About</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+        <a href="contact.html" class="btn btn-outline-gold">Request a Quote</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ==================== PAGE HERO ==================== -->
+  <section class="page-hero">
+    <div class="container">
+      <h1>About GrandRise</h1>
+      <p>
+        A Nigeria‑based import and distribution company bridging the gap between
+        international suppliers and local demand.
+      </p>
+    </div>
+  </section>
+
+  <!-- ==================== WHO WE ARE ==================== -->
+  <section class="section">
+    <div class="container">
+      <div class="about-content">
+        <h2>Who We Are</h2>
+        <p>
+          GrandRise Enterprises Ltd is a Nigeria‑based import and distribution
+          company committed to delivering high‑quality products across key sectors
+          of the economy. We bridge the gap between international suppliers and
+          local demand by offering reliable sourcing, efficient logistics
+          coordination, and consistent supply.
+        </p>
+        <p>
+          Our operations are built on strong partnerships, market insight, and a
+          commitment to excellence. We work with verified global manufacturers to
+          ensure that every product meets required standards and satisfies the
+          needs of our clients.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== WHAT WE DO ==================== -->
+  <section class="section section-light">
+    <div class="container">
+      <div class="about-content">
+        <h2>What We Do</h2>
+        <p>We specialize in:</p>
+        <div class="specializations">
+          <div class="spec-card">
+            <div class="spec-marker"></div>
+            <div>
+              <h3>International Sourcing and Procurement</h3>
+              <p>Identifying and engaging trusted manufacturers globally.</p>
+            </div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-marker"></div>
+            <div>
+              <h3>Importation and Logistics Coordination</h3>
+              <p>Managing the end‑to‑end process from supplier to delivery.</p>
+            </div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-marker"></div>
+            <div>
+              <h3>Bulk Supply and Distribution</h3>
+              <p>Delivering in volume to businesses across Nigeria.</p>
+            </div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-marker"></div>
+            <div>
+              <h3>Supplier Verification and Quality Assurance</h3>
+              <p>Due diligence to ensure reliability and product standards.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== MISSION & VISION ==================== -->
+  <section class="section">
+    <div class="container">
+      <div class="about-content">
+        <h2 style="text-align: center;">Our Purpose</h2>
+        <div class="mv-grid">
+          <div class="mv-card">
+            <h3><span>🎯</span> Mission</h3>
+            <p>
+              To provide reliable access to high‑quality goods by connecting global
+              suppliers with the Nigerian market through efficient, transparent, and
+              professional import and distribution services.
+            </p>
+          </div>
+          <div class="mv-card">
+            <h3><span>👁️</span> Vision</h3>
+            <p>
+              To become a leading diversified trading and import company in Nigeria
+              and across Africa, recognized for integrity, efficiency, and
+              excellence.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== OUR COMMITMENT ==================== -->
+  <section class="section section-light">
+    <div class="container">
+      <div class="commitment">
+        <h2>Our Commitment</h2>
+        <p>
+          We are committed to supporting businesses and industries in Nigeria by
+          providing access to essential goods while maintaining global standards
+          in sourcing and logistics.
+        </p>
+        <a href="contact.html" class="btn btn-gold">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer>
+    <div class="container">
+      <div>
+        <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1778336562/IMG-20260501-WA0017_qabmpq.jpg" alt="GrandRise" class="footer-logo" />
+        <p style="margin-top: 0.5rem;">Global Sourcing. Reliable Supply. Sustainable Growth.</p>
+      </div>
+      <p>&copy; 2025 GrandRise Enterprises Ltd. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ==================== MOBILE MENU TOGGLE ==================== -->
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
+  </script>
+
+</body>
+</html>

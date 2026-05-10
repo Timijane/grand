@@ -1,460 +1,1191 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>GrandRise Enterprises Ltd – Global Sourcing, Reliable Supply</title>
-  <meta name="description" content="GrandRise Enterprises Ltd connects global manufacturers to the Nigerian market across agriculture, electronics, industrial equipment, construction materials, and consumer goods." />
-  <style>
-    :root {
-      --navy: #0A1F3F;
-      --gold: #D4A843;
-      --slate: #4B5563;
-      --light-bg: #F7F7F5;
-      --text: #1e293b;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      color: var(--text);
-      background: white;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-    .container { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
-    h1, h2, h3 { font-weight: 700; color: var(--navy); }
-    h2 { font-size: 2rem; margin-bottom: 1.5rem; }
-    @media (min-width: 768px) { h2 { font-size: 2.5rem; } }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>GrandRise Enterprises Ltd – Global Sourcing, Reliable Supply</title>
+    <meta name="description" content="GrandRise Enterprises Ltd connects global manufacturers to the Nigerian market across agriculture, electronics, industrial equipment, construction materials, and consumer goods." />
+    <style>
+        :root {
+            --deep-navy: #060f1f;
+            --navy: #0a1a33;
+            --gold: #C8963E;
+            --gold-light: #DCB56C;
+            --gold-pale: #F5E7D3;
+            --white-soft: #FFFDF8;
+            --cream: #F9F6F0;
+            --slate: #5B6B7D;
+            --text: #1a2332;
+            --text-light: #64748B;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --shadow-gold: 0 8px 32px rgba(200, 150, 62, 0.12);
+            --shadow-elevated: 0 20px 60px rgba(0,0,0,0.08);
+            --radius-sm: 10px;
+            --radius: 18px;
+            --radius-lg: 24px;
+            --transition: 0.35s cubic-bezier(0.25, 0.8, 0.25, 1.2);
+        }
 
-    /* ----- Header ----- */
-    .header {
-      position: fixed; top: 0; left: 0; width: 100%; z-index: 50;
-      background: rgba(10, 31, 63, 0.92);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(212, 167, 67, 0.25);
-    }
-    .header .container {
-      display: flex; align-items: center; justify-content: space-between;
-      height: 70px;
-    }
-    .logo img {
-      height: 44px;
-      width: 44px;
-      border-radius: 50%;
-      object-fit: cover;
-      display: block;
-      border: 2px solid var(--gold);
-    }
-    .nav-links { display: flex; gap: 2rem; align-items: center; }
-    .nav-links a {
-      color: white; text-decoration: none; font-weight: 500;
-      font-size: 0.95rem; transition: color 0.2s;
-    }
-    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
-    .btn {
-      display: inline-block; padding: 0.75rem 1.75rem; border-radius: 8px;
-      font-weight: 600; text-decoration: none; transition: all 0.2s;
-      cursor: pointer; border: 1px solid transparent;
-    }
-    .btn-gold { background: var(--gold); color: var(--navy); border-color: var(--gold); }
-    .btn-gold:hover { background: #c99b2e; }
-    .btn-outline-gold { border-color: var(--gold); color: var(--gold); background: transparent; }
-    .btn-outline-gold:hover { background: var(--gold); color: var(--navy); }
-    .mobile-menu-btn { display: none; background: none; border: none; color: white; font-size: 1.5rem; }
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none; position: absolute; top: 70px; left: 0; width: 100%;
-        background: rgba(10, 31, 63, 0.98); flex-direction: column;
-        padding: 1.5rem; gap: 1rem;
-      }
-      .nav-links.open { display: flex; }
-      .mobile-menu-btn { display: block; }
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    /* ----- Hero ----- */
-    .hero {
-      background: var(--navy);
-      padding: 7rem 0 5rem;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      right: -20%;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(212,167,67,0.06) 0%, transparent 70%);
-      border-radius: 50%;
-    }
-    .hero .container {
-      position: relative;
-      z-index: 1;
-    }
-    .hero-content {
-      max-width: 720px;
-    }
-    .hero h1 {
-      color: white;
-      font-size: clamp(2.5rem, 6vw, 4rem);
-      line-height: 1.15;
-      margin-bottom: 1.5rem;
-    }
-    .hero h1 .gold { color: var(--gold); }
-    .hero p {
-      color: rgba(255, 255, 255, 0.7);
-      font-size: 1.1rem;
-      max-width: 600px;
-      margin-bottom: 2rem;
-    }
-    .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+        html {
+            scroll-behavior: smooth;
+        }
 
-    /* ----- Section Spacing ----- */
-    .section { padding: 5rem 0; }
-    .section-light { background: var(--light-bg); }
-    .section-title { text-align: center; margin-bottom: 1rem; }
-    .section-subtitle {
-      text-align: center;
-      max-width: 600px;
-      margin: 0 auto 3rem;
-      color: var(--slate);
-    }
+        body {
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+            color: var(--text);
+            background: var(--white-soft);
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
 
-    /* ----- Sectors Grid ----- */
-    .sectors-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 2rem;
-    }
-    .sector-item { text-align: center; }
-    .sector-icon {
-      width: 72px; height: 72px; margin: 0 auto 1rem;
-      background: white; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    }
-    .sector-icon svg { width: 34px; height: 34px; stroke: var(--gold); }
-    .sector-item h4 { font-weight: 600; color: var(--navy); font-size: 1rem; }
+        /* ===== TYPOGRAPHY ===== */
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--navy);
+        }
 
-    /* ----- Why Choose Grid ----- */
-    .why-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 2rem;
-    }
-    .why-card {
-      background: white;
-      border-radius: 16px;
-      padding: 2rem 1.5rem;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
-      text-align: center;
-      border-top: 3px solid var(--gold);
-      transition: transform 0.2s;
-    }
-    .why-card:hover { transform: translateY(-4px); }
-    .why-icon { width: 48px; height: 48px; margin: 0 auto 1rem; color: var(--gold); }
-    .why-card h3 { font-size: 1.15rem; margin-bottom: 0.5rem; }
-    .why-card p { color: var(--slate); font-size: 0.95rem; }
+        h2 {
+            font-size: 2.4rem;
+            margin-bottom: 1.2rem;
+            position: relative;
+        }
 
-    /* ----- Services Overview ----- */
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.5rem;
-    }
-    .service-card {
-      background: white;
-      border-radius: 16px;
-      padding: 2rem 1.5rem;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
-      transition: transform 0.2s;
-    }
-    .service-card:hover { transform: translateY(-4px); }
-    .service-icon { margin-bottom: 1rem; }
-    .service-icon svg { width: 36px; height: 36px; stroke: var(--gold); }
-    .service-card h3 { font-size: 1.15rem; margin-bottom: 0.5rem; }
-    .service-card p { color: var(--slate); font-size: 0.95rem; }
+        .section-label {
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 0.6rem;
+        }
 
-    /* ----- Commitment Band ----- */
-    .commitment {
-      background: var(--navy);
-      color: white;
-      text-align: center;
-      padding: 4rem 0;
-    }
-    .commitment h2 { color: var(--gold); }
-    .commitment p {
-      color: rgba(255, 255, 255, 0.8);
-      max-width: 650px;
-      margin: 0 auto 2rem;
-      font-size: 1.05rem;
-    }
+        @media (min-width: 768px) {
+            h2 {
+                font-size: 2.8rem;
+            }
+        }
 
-    /* ----- Footer ----- */
-    footer {
-      background: var(--navy); color: white; padding: 2rem 0; font-size: 0.9rem;
-      border-top: 1px solid rgba(212, 167, 67, 0.2);
-    }
-    footer .container {
-      display: flex; flex-wrap: wrap; justify-content: space-between;
-      align-items: center;
-    }
-    footer a { color: var(--gold); text-decoration: none; }
-    .footer-logo {
-      height: 36px;
-      width: 36px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid var(--gold);
-      filter: brightness(0) invert(1);
-    }
-  </style>
+        /* ===== CONTAINER ===== */
+        .container {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.85rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+            border: 1.5px solid transparent;
+            letter-spacing: 0.01em;
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+            color: #fff;
+            border-color: transparent;
+            box-shadow: 0 6px 24px rgba(200, 150, 62, 0.3);
+        }
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(200, 150, 62, 0.45);
+        }
+
+        .btn-outline-gold {
+            border-color: var(--gold);
+            color: var(--gold);
+            background: transparent;
+        }
+        .btn-outline-gold:hover {
+            background: var(--gold);
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(200, 150, 62, 0.25);
+        }
+
+        .btn-white {
+            background: #fff;
+            color: var(--navy);
+            border-color: #fff;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+        }
+        .btn-white:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.1);
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            background: rgba(10, 26, 51, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(200, 150, 62, 0.2);
+            transition: background 0.4s;
+        }
+
+        .header.scrolled {
+            background: rgba(6, 15, 31, 0.95);
+        }
+
+        .header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 76px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 46px;
+            width: 46px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--gold);
+            transition: var(--transition);
+            box-shadow: 0 0 20px rgba(200, 150, 62, 0.2);
+        }
+
+        .logo:hover img {
+            box-shadow: 0 0 30px rgba(200, 150, 62, 0.45);
+        }
+
+        .logo-text {
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: -0.01em;
+            display: none;
+        }
+
+        @media (min-width: 480px) {
+            .logo-text {
+                display: block;
+            }
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.92rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s;
+            border-radius: 2px;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #fff;
+        }
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: 2px solid rgba(255,255,255,0.25);
+            color: #fff;
+            font-size: 1.4rem;
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .mobile-menu-btn:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        @media (max-width: 860px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 76px;
+                left: 0;
+                width: 100%;
+                background: rgba(6, 15, 31, 0.98);
+                backdrop-filter: blur(30px);
+                flex-direction: column;
+                padding: 2rem 2rem 2.5rem;
+                gap: 1.5rem;
+                border-bottom: 1px solid rgba(200,150,62,0.2);
+            }
+            .nav-links.open {
+                display: flex;
+            }
+            .mobile-menu-btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            position: relative;
+            background: linear-gradient(160deg, var(--deep-navy) 0%, #0f2342 50%, var(--navy) 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            padding: 6rem 0 5rem;
+        }
+
+        /* Gold accent lines */
+        .hero-lines {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .hero-line {
+            position: absolute;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(200,150,62,0.25), rgba(200,150,62,0.5), rgba(200,150,62,0.25), transparent);
+            width: 100%;
+        }
+        .hero-line:nth-child(1) { top: 18%; animation: lineDrift 8s ease-in-out infinite; }
+        .hero-line:nth-child(2) { top: 42%; animation: lineDrift 10s ease-in-out infinite reverse; width: 80%; left: 10%; }
+        .hero-line:nth-child(3) { top: 68%; animation: lineDrift 7s ease-in-out infinite 0.5s; }
+
+        .hero-line-vertical {
+            position: absolute;
+            width: 1px;
+            background: linear-gradient(180deg, transparent, rgba(200,150,62,0.3), rgba(200,150,62,0.6), rgba(200,150,62,0.3), transparent);
+            height: 60%;
+            top: 20%;
+        }
+        .hero-line-vertical:nth-child(4) { left: 15%; animation: lineDriftV 9s ease-in-out infinite; }
+        .hero-line-vertical:nth-child(5) { left: 75%; animation: lineDriftV 11s ease-in-out infinite reverse; }
+
+        @keyframes lineDrift {
+            0%, 100% { transform: translateX(0); opacity: 0.5; }
+            50% { transform: translateX(30px); opacity: 0.8; }
+        }
+        @keyframes lineDriftV {
+            0%, 100% { transform: translateY(0); opacity: 0.4; }
+            50% { transform: translateY(-20px); opacity: 0.7; }
+        }
+
+        /* Golden particles */
+        .particles {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: var(--gold-light);
+            border-radius: 50%;
+            animation: floatUp 6s ease-in infinite;
+            opacity: 0;
+        }
+        .particle:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .particle:nth-child(2) { left: 25%; animation-delay: 1.2s; width: 2px; height: 2px; }
+        .particle:nth-child(3) { left: 40%; animation-delay: 2.5s; }
+        .particle:nth-child(4) { left: 55%; animation-delay: 0.8s; width: 4px; height: 4px; }
+        .particle:nth-child(5) { left: 70%; animation-delay: 3.2s; }
+        .particle:nth-child(6) { left: 85%; animation-delay: 1.8s; width: 2px; height: 2px; }
+        .particle:nth-child(7) { left: 18%; animation-delay: 4.1s; }
+        .particle:nth-child(8) { left: 62%; animation-delay: 2.9s; width: 3px; height: 3px; }
+        .particle:nth-child(9) { left: 48%; animation-delay: 5.5s; }
+        .particle:nth-child(10) { left: 78%; animation-delay: 3.8s; width: 2px; height: 2px; }
+
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) scale(0); opacity: 0; }
+            10% { opacity: 1; }
+            40% { opacity: 0.8; }
+            90% { opacity: 0; }
+            100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+        }
+
+        /* Hero glow */
+        .hero-glow {
+            position: absolute;
+            width: 700px;
+            height: 700px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(200,150,62,0.07) 0%, transparent 70%);
+            top: -200px;
+            right: -150px;
+            z-index: 0;
+            animation: pulseGlow 6s ease-in-out infinite;
+        }
+        .hero-glow.secondary {
+            width: 400px;
+            height: 400px;
+            bottom: -100px;
+            left: -100px;
+            top: auto;
+            right: auto;
+            animation-delay: 3s;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.15); opacity: 1; }
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        @media (min-width: 900px) {
+            .hero .container {
+                grid-template-columns: 1.1fr 0.9fr;
+            }
+        }
+
+        .hero-content {
+            max-width: 640px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(200,150,62,0.1);
+            border: 1px solid rgba(200,150,62,0.25);
+            padding: 0.5rem 1.1rem;
+            border-radius: 50px;
+            color: var(--gold-light);
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            margin-bottom: 1.8rem;
+            animation: fadeInUp 0.8s ease-out;
+        }
+        .hero-badge .dot {
+            width: 8px;
+            height: 8px;
+            background: var(--gold);
+            border-radius: 50%;
+            animation: blink 1.5s ease-in-out infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .hero h1 {
+            color: #fff;
+            font-size: clamp(2.8rem, 6.5vw, 4.4rem);
+            line-height: 1.1;
+            margin-bottom: 1.6rem;
+            animation: fadeInUp 0.8s ease-out 0.1s both;
+        }
+        .hero h1 .gold {
+            color: var(--gold-light);
+            position: relative;
+            display: inline-block;
+        }
+        .hero h1 .gold::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            border-radius: 2px;
+        }
+
+        .hero p {
+            color: rgba(255, 255, 255, 0.65);
+            font-size: 1.15rem;
+            max-width: 540px;
+            margin-bottom: 2.2rem;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease-out 0.3s both;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Hero visual - abstract geometric */
+        .hero-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+        .hero-geo {
+            position: relative;
+            width: 320px;
+            height: 320px;
+        }
+        .geo-ring {
+            position: absolute;
+            border-radius: 50%;
+            border: 2px solid rgba(200,150,62,0.2);
+            animation: rotateRing 20s linear infinite;
+        }
+        .geo-ring:nth-child(1) {
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            animation-duration: 20s;
+        }
+        .geo-ring:nth-child(2) {
+            width: 74%;
+            height: 74%;
+            top: 13%;
+            left: 13%;
+            animation-duration: 25s;
+            animation-direction: reverse;
+            border-color: rgba(200,150,62,0.35);
+        }
+        .geo-ring:nth-child(3) {
+            width: 48%;
+            height: 48%;
+            top: 26%;
+            left: 26%;
+            animation-duration: 30s;
+            border-color: rgba(200,150,62,0.5);
+            border-width: 3px;
+        }
+        .geo-diamond {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: var(--gold);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+            border-radius: 4px;
+            box-shadow: 0 0 40px rgba(200,150,62,0.6), 0 0 80px rgba(200,150,62,0.3);
+            animation: pulseDiamond 3s ease-in-out infinite;
+        }
+        @keyframes pulseDiamond {
+            0%, 100% { box-shadow: 0 0 40px rgba(200,150,62,0.6), 0 0 80px rgba(200,150,62,0.3); }
+            50% { box-shadow: 0 0 60px rgba(200,150,62,0.9), 0 0 120px rgba(200,150,62,0.5); }
+        }
+        @keyframes rotateRing {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 899px) {
+            .hero-visual {
+                display: none;
+            }
+            .hero-geo {
+                width: 200px;
+                height: 200px;
+            }
+        }
+
+        /* ===== SECTIONS ===== */
+        .section {
+            padding: 6rem 0;
+        }
+        .section-light {
+            background: var(--cream);
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+        .section-header p {
+            max-width: 560px;
+            margin: 0 auto;
+            color: var(--slate);
+            font-size: 1.05rem;
+        }
+
+        /* Decorative line under titles */
+        .title-underline {
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+            border-radius: 2px;
+            margin: 0.8rem auto 0;
+        }
+
+        /* ===== SECTORS ===== */
+        .sectors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 1.8rem;
+        }
+        .sector-item {
+            text-align: center;
+            padding: 2rem 1.2rem;
+            border-radius: var(--radius);
+            background: #fff;
+            border: 1px solid rgba(0,0,0,0.04);
+            transition: var(--transition);
+            cursor: default;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+        .sector-item:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-elevated);
+            border-color: rgba(200,150,62,0.2);
+        }
+        .sector-icon {
+            width: 68px;
+            height: 68px;
+            margin: 0 auto 1rem;
+            background: linear-gradient(135deg, var(--gold-pale), #FFF8ED);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+        .sector-item:hover .sector-icon {
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+        }
+        .sector-item:hover .sector-icon svg {
+            stroke: #fff;
+        }
+        .sector-icon svg {
+            width: 32px;
+            height: 32px;
+            stroke: var(--gold);
+            transition: stroke 0.3s;
+        }
+        .sector-item h4 {
+            font-weight: 600;
+            color: var(--navy);
+            font-size: 0.95rem;
+        }
+
+        /* ===== WHY CARDS ===== */
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 2rem;
+        }
+        .why-card {
+            background: #fff;
+            border-radius: var(--radius);
+            padding: 2.2rem 1.8rem;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+            text-align: center;
+            border: 1px solid rgba(0,0,0,0.04);
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        .why-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
+        }
+        .why-card:hover::before {
+            transform: scaleX(1);
+        }
+        .why-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-elevated);
+            border-color: rgba(200,150,62,0.15);
+        }
+        .why-icon {
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 1.2rem;
+            background: var(--cream);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+        .why-card:hover .why-icon {
+            background: var(--gold-pale);
+        }
+        .why-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: var(--gold);
+        }
+        .why-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        .why-card p {
+            color: var(--slate);
+            font-size: 0.93rem;
+        }
+
+        /* ===== SERVICES ===== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.8rem;
+        }
+        .service-card {
+            background: #fff;
+            border-radius: var(--radius);
+            padding: 2.2rem 1.8rem;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+            border: 1px solid rgba(0,0,0,0.04);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, rgba(200,150,62,0.06) 0%, transparent 70%);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+        .service-card:hover::after {
+            width: 160px;
+            height: 160px;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-elevated);
+            border-color: rgba(200,150,62,0.2);
+        }
+        .service-icon {
+            width: 52px;
+            height: 52px;
+            margin-bottom: 1.2rem;
+            background: var(--cream);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .service-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: var(--gold);
+        }
+        .service-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        .service-card p {
+            color: var(--slate);
+            font-size: 0.93rem;
+        }
+
+        /* ===== COMMITMENT ===== */
+        .commitment {
+            background: linear-gradient(160deg, var(--deep-navy) 0%, #0f2342 50%, var(--navy) 100%);
+            color: #fff;
+            text-align: center;
+            padding: 5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .commitment::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(200,150,62,0.08) 0%, transparent 60%);
+            border-radius: 50%;
+        }
+        .commitment .container {
+            position: relative;
+            z-index: 1;
+        }
+        .commitment h2 {
+            color: var(--gold-light);
+            font-size: 2.4rem;
+        }
+        .commitment p {
+            color: rgba(255,255,255,0.7);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            font-size: 1.05rem;
+        }
+        .commitment .btn-gold {
+            background: #fff;
+            color: var(--navy);
+            box-shadow: 0 6px 24px rgba(0,0,0,0.2);
+        }
+        .commitment .btn-gold:hover {
+            background: var(--gold-light);
+            color: #fff;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--deep-navy);
+            color: rgba(255,255,255,0.7);
+            padding: 2.5rem 0;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(200,150,62,0.15);
+        }
+        footer .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        footer a {
+            color: var(--gold-light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        footer a:hover {
+            color: #fff;
+        }
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        .footer-logo {
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--gold);
+            filter: brightness(0) invert(1);
+        }
+
+        /* ===== SCROLL TO TOP ===== */
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--navy);
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 90;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: var(--transition);
+            pointer-events: none;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+        }
+        .scroll-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+        .scroll-top:hover {
+            background: var(--gold);
+            color: var(--navy);
+        }
+    </style>
 </head>
 <body>
 
-  <!-- ==================== HEADER ==================== -->
-  <header class="header">
-    <div class="container">
-      <a href="index.html" class="logo">
-        <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1778336562/IMG-20260501-WA0017_qabmpq.jpg" alt="GrandRise Logo" />
-      </a>
-      <button class="mobile-menu-btn" id="menuBtn" aria-label="Menu">☰</button>
-      <nav class="nav-links" id="navLinks">
-        <a href="index.html" class="active">Home</a>
-        <a href="about.html">About</a>
-        <a href="services.html">Services</a>
-        <a href="contact.html">Contact</a>
-        <a href="contact.html" class="btn btn-outline-gold">Request a Quote</a>
-      </nav>
-    </div>
-  </header>
+    <!-- ==================== HEADER ==================== -->
+    <header class="header" id="header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1778336562/IMG-20260501-WA0017_qabmpq.jpg" alt="GrandRise Logo" />
+                <span class="logo-text">GrandRise</span>
+            </a>
+            <button class="mobile-menu-btn" id="menuBtn" aria-label="Menu">
+                <span id="menuIcon">☰</span>
+            </button>
+            <nav class="nav-links" id="navLinks">
+                <a href="index.html" class="active">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="contact.html">Contact</a>
+                <a href="contact.html" class="btn btn-outline-gold">Request a Quote</a>
+            </nav>
+        </div>
+    </header>
 
-  <!-- ==================== HERO ==================== -->
-  <section class="hero">
-    <div class="container">
-      <div class="hero-content">
-        <h1>
-          Global Sourcing.<br />
-          <span class="gold">Reliable Supply.</span><br />
-          Sustainable Growth.
-        </h1>
-        <p>
-          GrandRise Enterprises Ltd is a diversified import and supply company
-          connecting global manufacturers to the Nigerian market across
-          agriculture, electronics, industrial equipment, construction materials,
-          and consumer goods.
-        </p>
-        <div class="hero-buttons">
-          <a href="contact.html" class="btn btn-outline-gold">Get in Touch</a>
-          <a href="contact.html" class="btn btn-gold">Request a Quote</a>
+    <!-- ==================== HERO ==================== -->
+    <section class="hero">
+        <!-- Gold linework -->
+        <div class="hero-lines">
+            <div class="hero-line"></div>
+            <div class="hero-line"></div>
+            <div class="hero-line"></div>
+            <div class="hero-line-vertical"></div>
+            <div class="hero-line-vertical"></div>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ==================== SECTORS OVERVIEW ==================== -->
-  <section class="section section-light">
-    <div class="container">
-      <h2 class="section-title">Our Sectors</h2>
-      <p class="section-subtitle">
-        We serve five critical sectors of the Nigerian economy with consistent,
-        high‑quality supply.
-      </p>
-      <div class="sectors-grid">
-        <div class="sector-item">
-          <div class="sector-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
-              <path d="M12 2L5 12h14L12 2zM5 12v8h14v-8" />
-              <path d="M12 20v-6" />
-            </svg>
-          </div>
-          <h4>Agro & Commodities</h4>
-        </div>
-        <div class="sector-item">
-          <div class="sector-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
-              <rect x="2" y="3" width="20" height="14" rx="2" />
-              <path d="M8 21h8M12 17v4" />
-            </svg>
-          </div>
-          <h4>Electronics & Technology</h4>
-        </div>
-        <div class="sector-item">
-          <div class="sector-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
-              <circle cx="12" cy="12" r="9" />
-              <path d="M12 3v6l4 4" />
-            </svg>
-          </div>
-          <h4>Industrial & Mechanical Equipment</h4>
-        </div>
-        <div class="sector-item">
-          <div class="sector-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
-              <rect x="3" y="3" width="18" height="18" rx="2" />
-              <path d="M3 9h18M9 3v18" />
-            </svg>
-          </div>
-          <h4>Construction Materials</h4>
-        </div>
-        <div class="sector-item">
-          <div class="sector-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
-              <path d="M6 2L6 22M18 2L18 22" />
-              <path d="M6 8h12v8H6z" />
-            </svg>
-          </div>
-          <h4>Food & FMCG</h4>
-        </div>
-      </div>
-    </div>
-  </section>
+        <!-- Glow orbs -->
+        <div class="hero-glow"></div>
+        <div class="hero-glow secondary"></div>
 
-  <!-- ==================== WHY CHOOSE GRANDRISE ==================== -->
-  <section class="section">
-    <div class="container">
-      <h2 class="section-title">Why Choose GrandRise</h2>
-      <p class="section-subtitle">
-        We bring professionalism, global reach, and a customer‑first approach
-        to every engagement.
-      </p>
-      <div class="why-grid">
-        <div class="why-card">
-          <div class="why-icon">
-            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5">
-              <circle cx="12" cy="12" r="9" />
-              <path d="M8 12l2 2 4-4" />
-            </svg>
-          </div>
-          <h3>Reliability</h3>
-          <p>Consistent and dependable supply chain you can trust.</p>
+        <!-- Golden particles -->
+        <div class="particles">
+            <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+            <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+            <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+            <div class="particle"></div>
         </div>
-        <div class="why-card">
-          <div class="why-icon">
-            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5">
-              <rect x="3" y="3" width="18" height="18" rx="2" />
-              <path d="M9 3v18M3 9h18" />
-            </svg>
-          </div>
-          <h3>Quality Assurance</h3>
-          <p>Carefully selected and verified suppliers only.</p>
-        </div>
-        <div class="why-card">
-          <div class="why-icon">
-            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5">
-              <path d="M12 2L15 8h7l-5.5 4 2 7L12 16l-6.5 3 2-7L2 8h7z" />
-            </svg>
-          </div>
-          <h3>Professionalism</h3>
-          <p>Transparent and structured business approach always.</p>
-        </div>
-        <div class="why-card">
-          <div class="why-icon">
-            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5">
-              <circle cx="12" cy="12" r="9" />
-              <path d="M3.5 12h17M12 3.5a15 15 0 0 1 0 17M12 3.5a15 15 0 0 0 0 17" />
-            </svg>
-          </div>
-          <h3>Global Reach</h3>
-          <p>Access to international markets and manufacturers.</p>
-        </div>
-        <div class="why-card">
-          <div class="why-icon">
-            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5">
-              <circle cx="12" cy="12" r="9" />
-              <path d="M12 6v6l4 2" />
-            </svg>
-          </div>
-          <h3>Customer Focus</h3>
-          <p>Tailored solutions designed for each client's needs.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ==================== SERVICES OVERVIEW ==================== -->
-  <section class="section section-light">
-    <div class="container">
-      <h2 class="section-title">Our Services</h2>
-      <p class="section-subtitle">
-        We manage the complete import lifecycle so you can focus on your business.
-      </p>
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
-              <circle cx="12" cy="12" r="9" />
-              <path d="M3.5 12h17M12 3.5a15 15 0 0 1 0 17M12 3.5a15 15 0 0 0 0 17" />
-            </svg>
-          </div>
-          <h3>Global Sourcing</h3>
-          <p>We identify and partner with trusted manufacturers across Asia, Europe, and other international markets to deliver quality products at competitive prices.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
-              <path d="M3 17h18M5 21h14a2 2 0 0 0 2-2v-4H3v4a2 2 0 0 0 2 2z" />
-              <path d="M12 3v10M8 7l4-4 4 4" />
-            </svg>
-          </div>
-          <h3>Importation & Logistics</h3>
-          <p>We manage the end‑to‑end import process — from supplier coordination to shipping and delivery — ensuring efficiency and compliance with regulatory requirements.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
-              <rect x="2" y="7" width="20" height="14" rx="2" />
-              <path d="M12 7V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v3" />
-            </svg>
-          </div>
-          <h3>Bulk Supply & Distribution</h3>
-          <p>We supply goods in bulk to wholesalers, retailers, and industrial users across Nigeria.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
-              <path d="M12 2L15 8h7l-5.5 4 2 7L12 16l-6.5 3 2-7L2 8h7z" />
-            </svg>
-          </div>
-          <h3>Supplier Verification</h3>
-          <p>We conduct due diligence on suppliers to ensure reliability, product quality, and compliance with international standards.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="dot"></span> Trusted Global Trade Partner
+                </div>
+                <h1>
+                    Global Sourcing.<br />
+                    <span class="gold">Reliable Supply.</span><br />
+                    Sustainable Growth.
+                </h1>
+                <p>
+                    GrandRise Enterprises Ltd is a diversified import and supply company
+                    connecting global manufacturers to the Nigerian market across
+                    agriculture, electronics, industrial equipment, construction materials,
+                    and consumer goods.
+                </p>
+                <div class="hero-buttons">
+                    <a href="contact.html" class="btn btn-gold">Request a Quote →</a>
+                    <a href="contact.html" class="btn btn-outline-gold">Get in Touch</a>
+                </div>
+            </div>
 
-  <!-- ==================== OUR COMMITMENT ==================== -->
-  <section class="commitment">
-    <div class="container">
-      <h2>Our Commitment</h2>
-      <p>
-        We are committed to supporting businesses and industries in Nigeria by
-        providing access to essential goods while maintaining global standards
-        in sourcing and logistics.
-      </p>
-      <a href="contact.html" class="btn btn-gold">Get in Touch</a>
-    </div>
-  </section>
+            <!-- Abstract geometric visual -->
+            <div class="hero-visual">
+                <div class="hero-geo">
+                    <div class="geo-ring"></div>
+                    <div class="geo-ring"></div>
+                    <div class="geo-ring"></div>
+                    <div class="geo-diamond"></div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- ==================== FOOTER ==================== -->
-  <footer>
-    <div class="container">
-      <div>
-        <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1778336562/IMG-20260501-WA0017_qabmpq.jpg" alt="GrandRise" class="footer-logo" />
-        <p style="margin-top: 0.5rem;">Global Sourcing. Reliable Supply. Sustainable Growth.</p>
-      </div>
-      <p>&copy; 2025 GrandRise Enterprises Ltd. All rights reserved.</p>
-    </div>
-  </footer>
+    <!-- ==================== SECTORS OVERVIEW ==================== -->
+    <section class="section section-light">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Industries We Serve</span>
+                <h2>Our Sectors</h2>
+                <div class="title-underline"></div>
+                <p>We serve five critical sectors of the Nigerian economy with consistent, high‑quality supply.</p>
+            </div>
+            <div class="sectors-grid">
+                <div class="sector-item">
+                    <div class="sector-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+                            <path d="M12 2L5 12h14L12 2zM5 12v8h14v-8" />
+                            <path d="M12 20v-6" />
+                        </svg>
+                    </div>
+                    <h4>Agro & Commodities</h4>
+                </div>
+                <div class="sector-item">
+                    <div class="sector-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+                            <rect x="2" y="3" width="20" height="14" rx="2" />
+                            <path d="M8 21h8M12 17v4" />
+                        </svg>
+                    </div>
+                    <h4>Electronics & Technology</h4>
+                </div>
+                <div class="sector-item">
+                    <div class="sector-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="9" />
+                            <path d="M12 3v6l4 4" />
+                        </svg>
+                    </div>
+                    <h4>Industrial Equipment</h4>
+                </div>
+                <div class="sector-item">
+                    <div class="sector-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+                            <rect x="3" y="3" width="18" height="18" rx="2" />
+                            <path d="M3 9h18M9 3v18" />
+                        </svg>
+                    </div>
+                    <h4>Construction Materials</h4>
+                </div>
+                <div class="sector-item">
+                    <div class="sector-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+                            <path d="M6 2L6 22M18 2L18 22" />
+                            <path d="M6 8h12v8H6z" />
+                        </svg>
+                    </div>
+                    <h4>Food & FMCG</h4>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- ==================== MOBILE MENU TOGGLE ==================== -->
-  <script>
-    const menuBtn = document.getElementById('menuBtn');
-    const navLinks = document.getElementById('navLinks');
-    menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
-  </script>
+    <!-- ==================== WHY CHOOSE GRANDRISE ==================== -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">The GrandRise Difference</span>
+                <h2>Why Choose Us</h2>
+                <div class="title-underline"></div>
+                <p>We bring professionalism, global reach, and a customer‑first approach to every engagement.</p>
+            </div>
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="9" />
+                            <path d="M8 12l2 2 4-4" />
+                        </svg>
+                    </div>
+                    <h3>Reliability</h3>
+                    <p>Consistent and dependable supply chain you can trust.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+                            <rect x="3" y="3" width="18" height="18" rx="2" />
+                            <path d="M9 3v18M3 9h18" />
+                        </svg>
+                    </div>
+                    <h3>Quality Assurance</h3>
+                    <p>Carefully selected and verified suppliers only.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+                            <path d="M12 2L15 8h7l-5.5 4 2 7L12 16l-6.5 3 2-7L2 8h7z" />
+                        </svg>
+                    </div>
+                    <h3>Professionalism</h3>
+                    <p>Transparent and structured business approach always.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="9" />
+                            <path d="M3.5 12h17M12 3.5a15 15 0 0 1 0 17M12 3.5a15 15 0 0 0 0 17" />
+                        </svg>
+                    </div>
+                    <h3>Global Reach</h3>
+                    <p>Access to international markets and manufacturers.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="9" />
+                            <path d="M12 6v6l4 2" />
+                        </svg>
+                    </div>
+                    <h3>Customer Focus</h3>
+                    <p>Tailored solutions designed for each client's needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- ==================== SERVICES OVERVIEW ==================== -->
+    <section class="section section-light">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">What We Do</span>
+                <h2>Our Services</h2>
+                <div class="title-underline"></div>
+                <p>We manage the complete import lifecycle so you can focus on your business.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="9" />
+                            <path d="M3.5 12h17M12 3.5a15 15 0 0 1 0 17M12 3.5a15 15 0 0 0 0 17" />
+                        </svg>
+                    </div>
+                    <h3>Global Sourcing</h3>
+                    <p>We identify and partner with trusted manufacturers across Asia, Europe, and other international markets to deliver quality products at competitive prices.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+                            <path d="M3 17h18M5 21h14a2 2 0 0 0 2-2v-4H3v4a2 2 0 0 0 2 2z" />
+                            <path d="M12 3v10M8 7l4-4 4 4" />
+                        </svg>
+                    </div>
+                    <h3>Importation & Logistics</h3>
+                    <p>We manage the end‑to‑end import process — from supplier coordination to shipping and delivery — ensuring efficiency and compliance with regulatory requirements.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+                            <rect x="2" y="7" width="20" height="14" rx="2" />
+                            <path d="M12 7V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v3" />
+                        </svg>
+                    </div>
+                    <h3>Bulk Supply & Distribution</h3>
+                    <p>We supply goods in bulk to wholesalers, retailers, and industrial users across Nigeria.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+                            <path d="M12 2L15 8h7l-5.5 4 2 7L12 16l-6.5 3 2-7L2 8h7z" />
+                        </svg>
+                    </div>
+                    <h3>Supplier Verification</h3>
+                    <p>We conduct due diligence on suppliers to ensure reliability, product quality, and compliance with international standards.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== OUR COMMITMENT ==================== -->
+    <section class="commitment">
+        <div class="container">
+            <span class="section-label" style="color: var(--gold-light);">Our Promise</span>
+            <h2>Our Commitment</h2>
+            <p>
+                We are committed to supporting businesses and industries in Nigeria by
+                providing access to essential goods while maintaining global standards
+                in sourcing and logistics.
+            </p>
+            <a href="contact.html" class="btn btn-gold">Get in Touch →</a>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
+        <div class="container">
+            <div class="footer-brand">
+                <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1778336562/IMG-20260501-WA0017_qabmpq.jpg" alt="GrandRise" class="footer-logo" />
+                <p>Global Sourcing. Reliable Supply. Sustainable Growth.</p>
+            </div>
+            <p>&copy; 2025 GrandRise Enterprises Ltd. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- ==================== SCROLL TO TOP ==================== -->
+    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">↑</button>
+
+    <!-- ==================== SCRIPTS ==================== -->
+    <script>
+        // Mobile menu
+        const menuBtn = document.getElementById('menuBtn');
+        const navLinks = document.getElementById('navLinks');
+        const menuIcon = document.getElementById('menuIcon');
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+            menuIcon.textContent = navLinks.classList.contains('open') ? '✕' : '☰';
+        });
+
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll to top button
+        const scrollTopBtn = document.getElementById('scrollTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 600) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+                menuIcon.textContent = '☰';
+            });
+        });
+    </script>
 </body>
 </html>
